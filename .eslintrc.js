@@ -31,6 +31,8 @@ module.exports = {
       'warn',
       { extensions: ['.jsx', '.js']}
     ],
-    'import/prefer-default-export': 'off'
+    'import/prefer-default-export': 'off',
+    'react/prop-types': 'off',
+    'react/destructuring-assignment': 'off'
   },
 };

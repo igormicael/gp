@@ -5,12 +5,15 @@ function Topo() {
   return (
     <nav className="indigo darken-4" role="navigation">
       <div className="nav-wrapper container">
-        <a id="logo-container" href className="brand-logo">
+        <a id="logo-container" href="/" className="brand-logo">
           React GP
         </a>
         <ul className="right">
           <li>
             <Link to="/">Acompanhar Pedidos</Link>
+          </li>
+          <li>
+            <Link to="/avancar">Avançar Pedidos</Link>
           </li>
           <li>
             <Link to="/cadastro">Cadastrar Pedidos</Link>

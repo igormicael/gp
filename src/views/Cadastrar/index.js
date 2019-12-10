@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { criarPedido } from '../../redux/actions/pedidoActions';
 
-const URL = 'http://localhost:3004/pedidos';
+// const URL = 'http://localhost:3004/pedidos';
 
 const INITIAL_STATE = {
   id: 0,
@@ -26,24 +29,28 @@ class Cadastro extends Component {
     });
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
-    const pedido = { ...this.state };
-    this.adicionarPedido(pedido);
-    // eslint-disable-next-line react/no-access-state-in-setstate
-    this.setState({ ...this.state, ...INITIAL_STATE });
-  };
+  // deprecated
+  // handleSubmit = event => {
+  //   event.preventDefault();
+  //   const pedido = { ...this.state };
+  //   this.props.criarPedido(pedido)
+  //   //Também é possivel fazer da maneira abaixo, mas teria que deixar de usar o onSubmit e usar o onClick do botão do form
+  //   this.adicionarPedido(pedido);
+  //   // eslint-disable-next-line react/no-access-state-in-setstate
+  //   this.setState({ ...this.state, ...INITIAL_STATE });
+  // };
 
-  adicionarPedido = pedido => {
-    axios.post(URL, pedido);
-  };
+  // deprecated
+  // adicionarPedido = pedido => {
+  //   axios.post(URL, pedido);
+  // };
 
   render() {
     const { nome, cpf, descricao } = this.state;
     return (
       <div className="row">
         <h1>Cadastro de pedidos</h1>
-        <form className="col s12" onSubmit={this.handleSubmit}>
+        <form className="col s12" onSubmit={this.props.criarPedido}>
           <div className="input-field col s12">
             <input
               placeholder="Nome"
@@ -76,4 +83,8 @@ class Cadastro extends Component {
   }
 }
 
-export default Cadastro;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ criarPedido }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(Cadastro);

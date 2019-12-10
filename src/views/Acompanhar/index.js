@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import TempoEspera from './tempoEspera';
-import Legenda from '../Legenda';
+import TempoEspera from '../../components/AcompanharList';
+import Legenda from '../../components/Legenda';
 
 const API_URL = 'http://localhost:3004/pedidos/';
 

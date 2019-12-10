@@ -1,10 +1,10 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Acompanhamento from './components/Pedido/Acompanhar';
-import Cadastro from './components/Pedido/Cadastrar';
-import Avancar from './components/Pedido/Avancar';
-import Caixa from './components/Pedido/Caixa';
+import Acompanhamento from './views/Acompanhar';
+import Cadastro from './views/Cadastrar';
+import Avancar from './views/Avancar';
+import Caixa from './views/Caixa';
 
 export default function Routes() {
   return (

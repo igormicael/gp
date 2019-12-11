@@ -1,86 +1,16 @@
-import React, { Component } from 'react';
-// import axios from 'axios';
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { criarPedido } from '../../redux/actions/pedidoActions';
+import CadastrarForm from '../../components/CadastrarForm';
 
-// const URL = 'http://localhost:3004/pedidos';
-
-const INITIAL_STATE = {
-  id: 0,
-  nome: '',
-  cpf: '',
-  descricao: '',
-  cadastrado_em: new Date(),
-  atualizado_em: null,
-  status: 'novo',
-};
-
-class Cadastro extends Component {
-  constructor(props) {
-    super(props);
-    this.state = INITIAL_STATE;
-  }
-
-  handleChange = event => {
-    event.preventDefault();
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  // deprecated
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   const pedido = { ...this.state };
-  //   this.props.criarPedido(pedido)
-  //   //Também é possivel fazer da maneira abaixo, mas teria que deixar de usar o onSubmit e usar o onClick do botão do form
-  //   this.adicionarPedido(pedido);
-  //   // eslint-disable-next-line react/no-access-state-in-setstate
-  //   this.setState({ ...this.state, ...INITIAL_STATE });
-  // };
-
-  // deprecated
-  // adicionarPedido = pedido => {
-  //   axios.post(URL, pedido);
-  // };
-
-  render() {
-    const { nome, cpf, descricao } = this.state;
-    return (
-      <div className="row">
-        <h1>Cadastro de pedidos</h1>
-        <form className="col s12" onSubmit={this.props.criarPedido}>
-          <div className="input-field col s12">
-            <input
-              placeholder="Nome"
-              name="nome"
-              value={nome}
-              onChange={this.handleChange}
-            />
-            <br />
-            <input
-              type="text"
-              placeholder="cpf"
-              name="cpf"
-              value={cpf}
-              onChange={this.handleChange}
-            />
-            <textarea
-              placeholder="Descrição"
-              name="descricao"
-              className="materialize-textarea"
-              value={descricao}
-              onChange={this.handleChange}
-            />
-            <button className="btn waves-effect waves-light" type="submit">
-              Enviar
-            </button>
-          </div>
-        </form>
-      </div>
-    );
-  }
+function Cadastro(props) {
+  return (
+    <div className="row">
+      <h1>Cadastro de pedidos</h1>
+      <CadastrarForm onSubmit={props.criarPedido} />
+    </div>
+  );
 }
 
 function mapDispatchToProps(dispatch) {

@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { carregarPedidos } from '../../redux/actions/pedidoActions';
 import TempoEspera from '../../components/AcompanharList';
 import Legenda from '../../components/Legenda';
 
-const API_URL = 'http://localhost:3004/pedidos/';
-
 class Acompanhamento extends Component {
-  constructor() {
-    super();
-    this.state = {
-      pedidos: [],
-    };
-  }
-
   componentDidMount() {
-    this.buscarPedidos();
+    this.props.carregarPedidos();
   }
 
   getTempoEspera() {
-    return this.state.pedidos.map(pedido => (
+    return this.props.pedidos.map(pedido => (
       <TempoEspera
+        pedido={pedido}
         cliente={pedido.nome}
         data={pedido.cadastrado_em}
         status={pedido.status}
@@ -27,12 +21,6 @@ class Acompanhamento extends Component {
         id={pedido.id}
       />
     ));
-  }
-
-  buscarPedidos() {
-    axios.get(API_URL).then(response => {
-      this.setState({ pedidos: response.data });
-    });
   }
 
   render() {
@@ -61,4 +49,14 @@ class Acompanhamento extends Component {
   }
 }
 
-export default Acompanhamento;
+function mapStateToProps(state) {
+  return {
+    pedidos: state.pedidos,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ carregarPedidos }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Acompanhamento);

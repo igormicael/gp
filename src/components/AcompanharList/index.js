@@ -3,7 +3,10 @@ import { parseISO, formatDistance } from 'date-fns';
 import { pt } from 'date-fns/locale';
 import StatusPedido from '../StatusPedido';
 
-export default function TempoEspera({ cliente, data, status }) {
+const TempoEspera = ({ cliente, data, status }) => {
+  console.log(cliente);
+  console.log(data);
+  console.log(status);
   const dataAsString = parseISO(data);
   const i = formatDistance(dataAsString, new Date(), { locale: pt });
 
@@ -37,4 +40,6 @@ export default function TempoEspera({ cliente, data, status }) {
       </div>
     </>
   );
-}
+};
+
+export default TempoEspera;

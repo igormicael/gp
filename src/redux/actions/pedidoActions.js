@@ -7,6 +7,7 @@ const URL = 'http://localhost:3004/pedidos';
 export function criarPedido(pedido) {
   const inner = pedido;
   inner.cadastrado_em = new Date();
+  inner.ativo = true;
   inner.status = 'novo';
 
   return dispath => {
@@ -23,8 +24,16 @@ export function carregarPedidosSucesso(pedidos) {
 
 export function carregarPedidos() {
   return dispath => {
-    axios.get(URL).then(pedidos => {
+    axios.get(`${URL}?ativo=true`).then(pedidos => {
       dispath(carregarPedidosSucesso(pedidos.data));
+    });
+  };
+}
+
+export function excluirPedido(pedido) {
+  return () => {
+    axios.patch(`${URL}/${pedido.id}`, { ativo: false }).then(() => {
+      this.carregarPedidos();
     });
   };
 }

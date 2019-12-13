@@ -1,33 +1,31 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import {
+  carregarPedidos,
+  excluirPedido,
+} from '../../redux/actions/pedidoActions';
 import Legenda from '../../components/Legenda';
 import AvancarList from '../../components/AvancarList';
 
-const API_URL = 'http://localhost:3004/pedidos/';
-
 class Avancar extends Component {
-  constructor() {
-    super();
-    this.state = {
-      pedidos: [],
-    };
-  }
-
   componentDidMount() {
-    this.buscarPedidos();
+    this.props.carregarPedidos();
   }
 
   getPedidos() {
-    return this.state.pedidos.map(pedido => (
-      <AvancarList pedido={pedido} key={pedido.id} />
+    return this.props.pedidos.map(pedido => (
+      <AvancarList
+        pedido={pedido}
+        onExcluir={this.handleExcluir}
+        key={pedido.id}
+      />
     ));
   }
 
-  buscarPedidos() {
-    axios.get(API_URL).then(response => {
-      this.setState({ pedidos: response.data });
-    });
-  }
+  handleExcluir = pedido => {
+    this.props.excluirPedido(pedido);
+  };
 
   render() {
     const avancarList = this.getPedidos();
@@ -52,4 +50,14 @@ class Avancar extends Component {
   }
 }
 
-export default Avancar;
+function mapStateToProps(state) {
+  return {
+    pedidos: state.pedidos,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ carregarPedidos, excluirPedido }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Avancar);

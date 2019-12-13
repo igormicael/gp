@@ -2,7 +2,8 @@ import React from 'react';
 import StatusPedido from '../StatusPedido';
 import { Button } from './styles';
 
-export default function AvancarList({ pedido }) {
+export default function AvancarList(props) {
+  const { pedido } = props;
   const flex = {
     display: 'flex',
     alignItems: 'center',
@@ -26,7 +27,9 @@ export default function AvancarList({ pedido }) {
         <div className="col s3 m3">
           <Button type="button"> seta </Button>
           <Button type="button"> foward </Button>
-          <Button type="button"> x </Button>
+          <Button type="button" onClick={() => props.onExcluir(props.pedido)}>
+            x
+          </Button>
         </div>
       </div>
     </>

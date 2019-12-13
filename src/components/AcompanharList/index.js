@@ -4,11 +4,8 @@ import { pt } from 'date-fns/locale';
 import StatusPedido from '../StatusPedido';
 
 const TempoEspera = ({ cliente, data, status }) => {
-  console.log(cliente);
-  console.log(data);
-  console.log(status);
   const dataAsString = parseISO(data);
-  const i = formatDistance(dataAsString, new Date(), { locale: pt });
+  const diferenca = formatDistance(dataAsString, new Date(), { locale: pt });
 
   const flex = {
     display: 'flex',
@@ -29,7 +26,7 @@ const TempoEspera = ({ cliente, data, status }) => {
         <div className="col s6 m6">
           <div className="card indigo darken-3">
             <div className="card-content white-text">
-              <span className="card-title">{i}</span>
+              <span className="card-title">{diferenca}</span>
             </div>
           </div>
         </div>

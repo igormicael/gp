@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { carregarPedidos } from '../../redux/actions/pedidoActions';
-import TempoEspera from '../../components/AcompanharList';
+import AcompanharList from '../../components/AcompanharList';
 import Legenda from '../../components/Legenda';
 
 class Acompanhamento extends Component {
@@ -10,10 +10,9 @@ class Acompanhamento extends Component {
     this.props.carregarPedidos();
   }
 
-  getTempoEspera() {
+  getAcompanharList() {
     return this.props.pedidos.map(pedido => (
-      <TempoEspera
-        pedido={pedido}
+      <AcompanharList
         cliente={pedido.nome}
         data={pedido.cadastrado_em}
         status={pedido.status}
@@ -24,7 +23,7 @@ class Acompanhamento extends Component {
   }
 
   render() {
-    const esperas = this.getTempoEspera();
+    const lista = this.getAcompanharList();
     return (
       <div className="section no-pad-bot" id="index-banner">
         <div className="container">
@@ -36,7 +35,7 @@ class Acompanhamento extends Component {
             <div className="col s6 m6">Tempo em espera</div>
             <div className="col s1 m1">Status</div>
           </div>
-          {esperas}
+          {lista}
           <div className="warn">
             Atenção: Dirija-se ao caixa quando seu pedido estiver azul
           </div>

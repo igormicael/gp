@@ -6,7 +6,7 @@
       "cpf": "02952930392",
       "descricao": "arroz",
       "cadastrado_em": "2019-12-08T22:20:07.817Z",
-      "atualizado_em": null,
+      "ativo": true,
       "status": "novo"
     },
     {
@@ -15,7 +15,7 @@
       "cpf": "02902902992",
       "descricao": "feijão",
       "cadastrado_em": "2019-12-08T22:20:07.817Z",
-      "atualizado_em": null,
+      "ativo": true,
       "status": "novo"
     },
     {
@@ -24,7 +24,7 @@
       "cpf": "52952952929",
       "descricao": "fralda",
       "cadastrado_em": "2019-12-08T22:20:07.817Z",
-      "atualizado_em": null,
+      "ativo": true,
       "status": "novo"
     },
     {
@@ -33,7 +33,7 @@
       "cpf": "000.000.000-00",
       "descricao": "Ovos",
       "cadastrado_em": "2019-12-09T01:10:10.194Z",
-      "atualizado_em": null,
+      "ativo": true,
       "status": "novo"
     },
     {
@@ -42,7 +42,7 @@
       "cpf": "00000000000",
       "descricao": "feijão",
       "cadastrado_em": "2019-12-10T21:37:52.828Z",
-      "atualizado_em": null,
+      "ativo": true,
       "status": "novo"
     }
   ]

@@ -4,16 +4,20 @@ export default function StatusPedido({ status }) {
   let color;
 
   switch (status) {
-    case 'pagamento':
-      color = 'blue';
-      break;
-    case 'sendo_preparado':
+    case 2:
       color = 'yellow';
       break;
-    case 'conferencia':
+    case 3:
       color = 'green';
       break;
+    case 4:
+      color = 'blue';
+      break;
+    case 5:
+      color = 'black';
+      break;
     default:
+      // 1
       color = 'red';
       break;
   }

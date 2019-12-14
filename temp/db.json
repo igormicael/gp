@@ -7,7 +7,7 @@
       "descricao": "arroz",
       "cadastrado_em": "2019-12-08T22:20:07.817Z",
       "ativo": true,
-      "status": "novo"
+      "status": 5
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "descricao": "feijão",
       "cadastrado_em": "2019-12-08T22:20:07.817Z",
       "ativo": true,
-      "status": "novo"
+      "status": 5
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "descricao": "fralda",
       "cadastrado_em": "2019-12-08T22:20:07.817Z",
       "ativo": true,
-      "status": "novo"
+      "status": 5
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       "descricao": "Ovos",
       "cadastrado_em": "2019-12-09T01:10:10.194Z",
       "ativo": true,
-      "status": "novo"
+      "status": 4
     },
     {
       "id": 5,
@@ -43,7 +43,16 @@
       "descricao": "feijão",
       "cadastrado_em": "2019-12-10T21:37:52.828Z",
       "ativo": true,
-      "status": "novo"
+      "status": 1
+    },
+    {
+      "nome": "cleo",
+      "cpf": "000",
+      "descricao": "queijo",
+      "cadastrado_em": "2019-12-13T23:24:24.036Z",
+      "ativo": true,
+      "status": 1,
+      "id": 6
     }
   ]
 }

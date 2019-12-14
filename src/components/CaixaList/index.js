@@ -1,8 +1,7 @@
 import React from 'react';
 import StatusPedido from '../StatusPedido';
-import { Button } from './styles';
 
-export default function AvancarList(props) {
+export default function CaixaList(props) {
   const { pedido } = props;
   const flex = {
     display: 'flex',
@@ -12,7 +11,7 @@ export default function AvancarList(props) {
   return (
     <>
       <div style={flex} className="row">
-        <div className="col s7 m7">
+        <div className="col s8 m8">
           <div className="card indigo darken-3">
             <div className="card-content white-text">
               <span className="card-title">{pedido.nome}</span>
@@ -24,26 +23,16 @@ export default function AvancarList(props) {
           <StatusPedido status={pedido.status} />
         </div>
 
-        <div className="col s4 m4">
-          <Button className="waves-effect waves-light btn" type="button">
-            Ver
-          </Button>
-          <Button
+        <div className="col s3 m3">
+          <button
             className="waves-effect waves-light btn green"
+            style={{ borderRadius: '50px' }}
             type="button"
-            disabled={props.pedido.status >= 4}
+            disabled={props.pedido.status !== 4}
             onClick={() => props.onAvancar(props.pedido)}
           >
-            Avançar
-          </Button>
-          <Button
-            className="waves-effect waves-light red btn"
-            type="button"
-            disabled={props.pedido.status >= 4}
-            onClick={() => props.onExcluir(props.pedido)}
-          >
-            Excluir
-          </Button>
+            Finalizar pedido
+          </button>
         </div>
       </div>
     </>

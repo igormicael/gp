@@ -21,6 +21,9 @@ export default function Legenda() {
       <div style={flex}>
         <Status color="blue" /> Pronto para pagamento
       </div>
+      <div style={flex}>
+        <Status color="black" /> Pago
+      </div>
     </div>
   );
 }

@@ -25,9 +25,6 @@ export default function AvancarList(props) {
         </div>
 
         <div className="col s4 m4">
-          <Button className="waves-effect waves-light btn" type="button">
-            Ver
-          </Button>
           <Button
             className="waves-effect waves-light btn green"
             type="button"
